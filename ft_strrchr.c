@@ -14,30 +14,20 @@
 
 char *ft_strrchr(const char *s, int c)
 {
-	int len;
-	len =(int)ft_strlen(s);
-
-	if(!(c >= 0 && c <= 255))
-	{
-		return((char *)s);
-	}else{
-	if(c == '\0')
-	{
-		return((char*)s + len);
-	}
+	size_t len;
+	len = ft_strlen(s);
 
 	while(len)
 	{
+		if(s[len] == (unsigned char) c)
+			return((char *)&s[len]);
 		len--;
-		if(s[len] == c)
-		{
-			return((char*)s + len);
-		}
-	
 	}
+	if(s[0] == (unsigned char) c)
+		return((char *)&s[len]);
 	return(NULL);
-	}
 }
+
 /*
 #include <stdio.h>
 #include <string.h>
