@@ -14,29 +14,14 @@
 
 char *ft_strchr(const char *s, int c)
 {
-	if(!(c >= 0 && c <= 255))
+	while(*s != (unsigned char) c)
 	{
-		return((char *)s);
-	}else{
-		if(c == '\0')
-		{
-			while(*s)
-				s++;
-			return((char *)s);
-		}
-
-		while(*s)
-		{
-			if(*s == c)
-			{
-				return((char *)s);
-			}
-			s++;
-		}
+		if(!*s)
+			return(NULL);
+		++s;
 	}
-	return(NULL);	
+	return((char *)s);
 }
-
 /*
 #include <stdio.h>
 #include <string.h>

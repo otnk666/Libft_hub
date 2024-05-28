@@ -15,29 +15,17 @@
 char *ft_strrchr(const char *s, int c)
 {
 	int len;
-	len =(int)ft_strlen(s);
+	len = (int) ft_strlen(s);
 
-	if(!(c >= 0 && c <= 255))
+	while(0 <= len)
 	{
-		return((char *)s);
-	}else{
-	if(c == '\0')
-	{
-		return((char*)s + len);
-	}
-
-	while(len)
-	{
+		if(s[len] == (unsigned char) c)
+			return((char *)&s[len]);
 		len--;
-		if(s[len] == c)
-		{
-			return((char*)s + len);
-		}
-	
 	}
 	return(NULL);
-	}
 }
+
 /*
 #include <stdio.h>
 #include <string.h>
