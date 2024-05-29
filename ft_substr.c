@@ -6,7 +6,7 @@
 /*   By: skomatsu <komatsu@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 02:05:17 by skomatsu          #+#    #+#             */
-/*   Updated: 2024/05/28 22:19:58 by skomatsu         ###   ########.fr       */
+/*   Updated: 2024/05/29 18:02:13 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,22 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 
     i = 0;
 
-    result = (char *)ft_calloc(len + 1, sizeof(char));
-    if(!result)
-        return(NULL);
+	if(s_len < len)
+		len = s_len;
     
 	if((start >= s_len) ||(len == 0))
+	{	
+		result = (char *)ft_calloc(1, sizeof(char));
 		return(result);
+	}
+
+	result = (char *)ft_calloc(len + 1, sizeof(char));
+    if(!result)
+        return(NULL);
 	
-	while( start < (start + len))
+	while(i < len && s[start])
     {
-        result[i] = s[start];
+		result[i] = s[start];
         i++;
         start++;
     }
