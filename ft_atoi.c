@@ -6,7 +6,7 @@
 /*   By: skomatsu <komatsu@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 23:46:35 by skomatsu          #+#    #+#             */
-/*   Updated: 2024/05/18 19:15:23 by skomatsu         ###   ########.fr       */
+/*   Updated: 2024/05/29 20:54:06 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ int	ft_atoi(const char *str)
 
 	flag = 1;
 	result = 0;
-	while(*str == ' ' || *str == '\t' || *str == '\n' || *str =='\v' || *str == '\f' || *str == '\r')
-		str++;
+	while((9 <= *str && *str <= 13) || *str == ' ')
+			str++;
+
+	
 	while(*str == '-' || *str == '+')
 	{
 		if(*str == '-')
@@ -34,9 +36,9 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	result = result * flag;
-	if(2147483647 < result)
-		return(214748364);
-	if(result < -2147483648)
+	if(2147483647 <= result)
+		return(2147483647);
+	if(result <= -2147483648)
 		return(-2147483648);
 	return((int) result);
 }
