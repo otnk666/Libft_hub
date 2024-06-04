@@ -6,7 +6,7 @@
 /*   By: skomatsu <komatsu@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 18:02:28 by skomatsu          #+#    #+#             */
-/*   Updated: 2024/04/27 21:59:00 by skomatsu         ###   ########.fr       */
+/*   Updated: 2024/06/04 16:07:34 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t	ft_strlen(const char *str)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 		i++;
-	return(i);
+	return (i);
 }

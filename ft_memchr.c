@@ -12,46 +12,40 @@
 
 #include "libft.h"
 
-void *ft_memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t i;
-	unsigned char *str;
+	size_t			i;
+	unsigned char	*str;
 
-	str = (unsigned char *) s;
+	str = (unsigned char *)s;
 	i = 0;
-
-	while(i < n)
+	while (i < n)
 	{
-		if(str[i] == (unsigned char)c)
+		if (str[i] == (unsigned char)c)
 		{
-			return((void *)str + i);
+			return ((void *)str + i);
 		}
 		i++;
 	}
-	return(NULL);
-		
+	return (NULL);
 }
- /*
-int main()
+/*
+int	main(void)
 {
-    char str[] = "Hello, World!";
-    char *res, *ft_res;
+   char str[] = "Hello, World!";
 
-    // memchrのテスト
-    res = memchr(str, 'o', strlen(str));
-    printf("memchr: %s\n", res ? res : "Not found");
-
-    // ft_memchrのテスト
-    ft_res = ft_memchr(str, 'o', strlen(str));
-    printf("ft_memchr: %s\n", ft_res ? (char *)ft_res : "Not found");
-
-    // 見つからない場合のテスト
-    res = memchr(str, 'x', strlen(str));
-    printf("memchr: %s\n", res ? res : "Not found");
-
-    ft_res = ft_memchr(str, 'x', strlen(str));
-    printf("ft_memchr: %s\n", ft_res ? (char *)ft_res : "Not found");
-
-    return 0;
+   char *res, *ft_res;
+   // memchrのテスト
+   res = memchr(str, 'o', strlen(str));
+   printf("memchr: %s\n", res ? res : "Not found");
+   // ft_memchrのテスト
+   ft_res = ft_memchr(str, 'o', strlen(str));
+   printf("ft_memchr: %s\n", ft_res ? (char *)ft_res : "Not found");
+   // 見つからない場合のテスト
+   res = memchr(str, 'x', strlen(str));
+   printf("memchr: %s\n", res ? res : "Not found");
+   ft_res = ft_memchr(str, 'x', strlen(str));
+   printf("ft_memchr: %s\n", ft_res ? (char *)ft_res : "Not found");
+   return (0);
 }
 */

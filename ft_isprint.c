@@ -6,13 +6,13 @@
 /*   By: skomatsu <komatsu@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 23:00:03 by skomatsu          #+#    #+#             */
-/*   Updated: 2024/04/17 23:00:51 by skomatsu         ###   ########.fr       */
+/*   Updated: 2024/06/04 14:05:30 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isprint(int c)
 {
-	if(32 <= c && c <= 126)
+	if (32 <= c && c <= 126)
 		return (1);
-	return(0);
+	return (0);
 }

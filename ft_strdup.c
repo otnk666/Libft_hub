@@ -6,12 +6,11 @@
 /*   By: skomatsu <komatsu@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 10:14:47 by skomatsu          #+#    #+#             */
-/*   Updated: 2024/05/01 20:23:11 by skomatsu         ###   ########.fr       */
+/*   Updated: 2024/06/04 16:01:03 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 char	*ft_strdup(const char *src)
 {
