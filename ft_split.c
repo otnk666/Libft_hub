@@ -6,111 +6,86 @@
 /*   By: skomatsu <komatsu@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 16:35:46 by skomatsu          #+#    #+#             */
-/*   Updated: 2024/06/04 16:35:52 by skomatsu         ###   ########.fr       */
+/*   Updated: 2024/06/06 21:37:32 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
-int	ft_delimiter(char c, char *charset)
+size_t	count_words(const char *str, char c)
 {
-	int	i;
+	size_t	count;
+	size_t	in_word;
 
-	i = 0;
-	while (charset[i] != '\0')
-	{
-		if (c == charset[i])
-			return (1);
-		i++;
-	}
-	if (c == '\0')
-		return (1);
-	return (0);
-}
-
-int	ft_wordlength(char *str, char *charset)
-{
-	int	len;
-	int	i;
-
-	len = 0;
-	i = 0;
+	count = 0;
+	in_word = 0;
 	while (*str)
 	{
-		if (ft_delimiter(*str, charset) == 0)
-			len++;
-		else
-			break ;
+		if (*str == c)
+			in_word = 0;
+		else if (!in_word)
+		{
+			count++;
+			in_word = 1;
+		}
 		str++;
+	}
+	return (count);
+}
+
+size_t	get_next_substr_len(const char **str, char c)
+{
+	size_t		len;
+	const char	*start;
+
+	len = 0;
+	while (**str && **str == c)
+		(*str)++;
+	start = *str;
+	while (**str && **str != c)
+	{
+		(*str)++;
+		len++;
 	}
 	return (len);
 }
 
-int	count_words(char *str, char *charset)
+void	contents_free(char **result, size_t n)
 {
-	int	i;
-	int	words;
-
-	words = 0;
-	i = 0;
-	while (str[i] != '\0')
+	while (n--)
 	{
-		if (ft_delimiter(str[i], charset) == 0 && ft_delimiter(str[i + 1],
-				charset) == 1)
-			words++;
-		i++;
+		free(result[n]);
+		result[n] = NULL;
 	}
-	return (words);
+	free(result);
+	result = NULL;
 }
 
-char	*ft_pass_ward(char *str, char *charset)
+char	**ft_split(const char *s, char c)
 {
-	int		i;
-	int		len;
-	char	*word;
+	char	**result;
+	size_t	i;
+	size_t	len;
+	size_t	count;
 
-	i = 0;
-	len = 0;
-	while (str[len] && !ft_delimiter(str[len], charset))
-		len++;
-	word = (char *)malloc(sizeof(char) * (len + 1));
-	if (word == NULL)
+	if (!s)
 		return (NULL);
-	while (str[i] && i < len)
-	{
-		word[i] = str[i];
-		i++;
-	}
-	word[len] = '\0';
-	return (word);
-}
-
-char	**ft_split(char *str, char *charset)
-{
-	char	**split_str;
-	int		i;
-	int		len;
-
-	i = 0;
-	split_str = (char **)malloc(sizeof(char *)
-			* (count_words(str, charset) + 1));
-	if (!split_str)
+	count = count_words(s, c);
+	result = (char **)malloc((count + 1) * sizeof(char *));
+	if (!result)
 		return (NULL);
-	len = ft_wordlength(str, charset);
-	while (*str != '\0')
+	i = 0;
+	while (*s)
 	{
+		len = get_next_substr_len(&s, c);
 		if (!len)
-			str++;
-		else
+			continue ;
+		result[i] = ft_substr(s - len, 0, len);
+		if (!result[i++])
 		{
-			split_str[i] = ft_pass_ward(str, charset);
-			if (split_str[i] == NULL)
-				return (NULL);
-			i++;
-			str += len;
+			contents_free(result, i);
 		}
 	}
-	split_str[i] = NULL;
-	return (split_str);
+	result[i] = NULL;
+	return (result);
 }
