@@ -6,7 +6,7 @@
 /*   By: skomatsu <komatsu@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 18:52:24 by skomatsu          #+#    #+#             */
-/*   Updated: 2024/05/01 20:35:39 by skomatsu         ###   ########.fr       */
+/*   Updated: 2024/06/11 21:03:34 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,36 +30,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		i++;
 	return (i);
 }
-
-/*
-#include <stdio.h>
-#include <string.h>
-
-int	main(void) {
-	char dst[20];
-	const char *src = "This is a long string";
-	size_t len;
-
-
-	len = ft_strlcpy(dst, "Hello", sizeof(dst));
-	printf("dst = '%s', len = %zu\n", dst, len);
-
-	len = strlcpy(dst, "Hello", sizeof(dst));
-	printf("dst = '%s', len = %zu\n", dst, len);
-
-
-	len = ft_strlcpy(dst, src, sizeof(dst));
-	printf("dst = '%s', len = %zu\n", dst, len);
-
-	len = strlcpy(dst, src, sizeof(dst));
-	printf("dst = '%s', len = %zu\n", dst, len);
-
-
-	len = ft_strlcpy(dst, "", sizeof(dst));
-	printf("dst = '%s', len = %zu\n", dst, len);
-	len = strlcpy(dst, "", sizeof(dst));
-	printf("dst = '%s', len = %zu\n", dst, len);
-
-	len = ft_strlcpy(NULL, src, 0);
-	printf("len = %zu\n", len);
-	*/

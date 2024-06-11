@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sprit.c                                         :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skomatsu <komatsu@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 16:35:46 by skomatsu          #+#    #+#             */
-/*   Updated: 2024/06/06 21:37:32 by skomatsu         ###   ########.fr       */
+/*   Updated: 2024/06/11 23:37:12 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,10 @@ char	**ft_split(const char *s, char c)
 	char	**result;
 	size_t	i;
 	size_t	len;
-	size_t	count;
 
 	if (!s)
 		return (NULL);
-	count = count_words(s, c);
-	result = (char **)malloc((count + 1) * sizeof(char *));
+	result = (char **)malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (!result)
 		return (NULL);
 	i = 0;
@@ -84,6 +82,7 @@ char	**ft_split(const char *s, char c)
 		if (!result[i++])
 		{
 			contents_free(result, i);
+			return (NULL);
 		}
 	}
 	result[i] = NULL;

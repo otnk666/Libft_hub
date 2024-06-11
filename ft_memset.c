@@ -6,7 +6,7 @@
 /*   By: skomatsu <komatsu@student.42tokyo.jp>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:00:54 by skomatsu          #+#    #+#             */
-/*   Updated: 2024/05/01 18:05:43 by skomatsu         ###   ########.fr       */
+/*   Updated: 2024/06/11 21:03:05 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,34 +26,3 @@ void	*ft_memset(void *b, int c, size_t len)
 	}
 	return ((void *)ptr);
 }
-
-/*
-#include <assert.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-void	*ft_memset(void *b, int c, size_t len);
-
-#include <stdio.h>
-#include <stdlib.h>
-
-int	main(void)
-{
-	char	buffer1[10] = {0};
-	char	buffer2[10] = {0};
-	char	buffer3[11] = {0};
-
-	// 1. 単一の文字で埋める
-	ft_memset(buffer1, 'A', 5);
-	printf("buffer1: %s\n", buffer1); // buffer1: AAAAA\0\0\0\0\0
-	// 2. 複数の文字で埋める
-	ft_memset(buffer2, 'B', 7);
-	printf("buffer2: %s\n", buffer2); // buffer2: BBBBBBB\0\0
-	// 3. 空の領域を埋める
-	ft_memset(buffer3, 'C', 10);
-	buffer3[10] = '\0';
-	printf("buffer3: %s\n", buffer3); // buffer3: CCCCCCCCCC
-	return (0);
-}
-*/

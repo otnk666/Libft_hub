@@ -6,7 +6,7 @@
 #    By: skomatsu <komatsu@student.42tokyo.jp>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/01 20:03:35 by skomatsu          #+#    #+#              #
-#    Updated: 2024/06/06 18:18:22 by skomatsu         ###   ########.fr        #
+#    Updated: 2024/06/11 20:46:42 by skomatsu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,4 +78,4 @@ re: fclean all
 bonus:			$(OBJS) $(BONUS_OBJS)
 				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
