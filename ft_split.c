@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skomatsu <komatsu@student.42tokyo.jp>      +#+  +:+       +#+        */
+/*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 16:35:46 by skomatsu          #+#    #+#             */
-/*   Updated: 2024/06/11 23:37:12 by skomatsu         ###   ########.fr       */
+/*   Updated: 2024/09/11 22:36:48 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,9 @@ size_t	get_next_substr_len(const char **str, char c)
 		(*str)++;
 		len++;
 	}
-	return (len);
+	if (*str > start)
+		return (len);
+	return (0);
 }
 
 void	contents_free(char **result, size_t n)
