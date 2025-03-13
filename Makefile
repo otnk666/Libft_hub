@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: skomatsu <komatsu@student.42tokyo.jp>      +#+  +:+       +#+         #
+#    By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/01 20:03:35 by skomatsu          #+#    #+#              #
-#    Updated: 2024/06/11 20:46:42 by skomatsu         ###   ########.fr        #
+#    Updated: 2025/03/13 22:48:26 by skomatsu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libft.a
-CC		= gcc
+CC		= cc
 CFLAGS 	= -Wall -Wextra -Werror
 SRC_DIR = .
 INC_DIR = .
@@ -61,9 +61,7 @@ BONUS_OBJS		= $(BONUS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rc $(NAME) $(OBJS)
-	ranlib $(NAME)
-
+	ar -rcs $(NAME) $(OBJS)
 %.o: %.c
 	$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
 
@@ -76,6 +74,6 @@ fclean: clean
 re: fclean all
 
 bonus:			$(OBJS) $(BONUS_OBJS)
-				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+				ar -rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
 .PHONY: all clean fclean re bonus
