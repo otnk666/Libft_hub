@@ -6,3 +6,4 @@
 Dockerfile
 *.a
 *.o
+.DS_Store
