@@ -6,16 +6,22 @@
 #    By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/01 20:03:35 by skomatsu          #+#    #+#              #
-#    Updated: 2025/03/16 23:48:16 by skomatsu         ###   ########.fr        #
+#    Updated: 2025/03/20 19:18:44 by skomatsu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =  libft.a
 CC =    cc
 CFLAGS = -Wall -Wextra -Werror
-SRC_DIR = .
-INC_DIR = .
-SRCS =	ft_isalpha.c    \
+SRCS_DIR = ./srcs
+INC_DIR = ./includes
+
+LIB_DIR = $(SRCS_DIR)/libft
+GNL_DIR = $(SRCS_DIR)/get_next_line
+PRNTF_DIR = $(SRCS_DIR)/ft_printf
+
+LIBS	= $(addprefix $(LIB_DIR)/, \
+	ft_isalpha.c    \
 	ft_isdigit.c    \
 	ft_isalnum.c    \
 	ft_isascii.c    \
@@ -49,10 +55,7 @@ SRCS =	ft_isalpha.c    \
 	ft_putstr_fd.c  \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c  \
-
-OBJS =	$(SRCS:.c=.o)
-
-BONUS =	ft_lstadd_back.c    \
+	ft_lstadd_back.c    \
 	ft_lstadd_front.c   \
 	ft_lstclear.c       \
 	ft_lstdelone.c      \
@@ -61,8 +64,25 @@ BONUS =	ft_lstadd_back.c    \
 	ft_lstmap.c         \
 	ft_lstnew.c         \
 	ft_lstsize.c        \
-            
-BONUS_OBJS =	$(BONUS:.c=.o)
+	) \
+
+GNL	= $(addprefix $(GNL_DIR)/, \
+	get_next_line.c	\
+	get_next_line_utils.c	\
+	) \
+
+PRNTF	= $(addprefix $(PRNTF_DIR)/, \
+	ft_printf.c \
+	ft_printf_char.c \
+	ft_printf_str.c \
+	ft_printf_int.c \
+	ft_printf_p.c \
+	ft_printf_nbr.c	\
+	)	\
+
+SRCS	= $(LIBS) $(GNL) $(PRNTF)
+
+OBJS =	$(SRCS:.c=.o)            
 
 all:	$(NAME)
 
@@ -79,8 +99,5 @@ fclean: clean
 	rm -f $(NAME)
 
 re:	fclean all
-
-bonus:	$(OBJS) $(BONUS_OBJS)
-	ar -rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
 .PHONY: all clean fclean re bonus

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skomatsu <komatsu@student.42tokyo.jp>      +#+  +:+       +#+        */
+/*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 16:13:07 by skomatsu          #+#    #+#             */
-/*   Updated: 2024/06/06 21:39:23 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/02/06 03:13:37 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
+	struct s_list	*prev;
 }					t_list;
 
 /* memory */
