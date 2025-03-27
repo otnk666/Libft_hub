@@ -6,7 +6,7 @@
 #    By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/01 20:03:35 by skomatsu          #+#    #+#              #
-#    Updated: 2025/03/20 19:18:44 by skomatsu         ###   ########.fr        #
+#    Updated: 2025/03/27 20:49:05 by skomatsu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ LIBS	= $(addprefix $(LIB_DIR)/, \
 	ft_memcmp.c     \
 	ft_strnstr.c    \
 	ft_atoi.c       \
+	ft_long_atoi.c  \
 	ft_strrchr.c    \
 	ft_substr.c     \
 	ft_strjoin.c    \

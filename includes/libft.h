@@ -6,7 +6,7 @@
 /*   By: skomatsu <skomatsu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 16:13:07 by skomatsu          #+#    #+#             */
-/*   Updated: 2025/02/06 03:13:37 by skomatsu         ###   ########.fr       */
+/*   Updated: 2025/03/27 20:48:31 by skomatsu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ char				*ft_strnstr(const char *haystack, const char *needle,
 
 /* other*/
 int					ft_atoi(const char *str);
-
+long				ft_long_atoi(const char *str);
 char				*ft_itoa(int n);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putendl_fd(char *s, int fd);
